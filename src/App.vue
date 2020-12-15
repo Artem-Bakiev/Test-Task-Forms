@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <Registration/>
+    <div class="header">
+      <div class="header__tittle">ХЕДЕР БУДЕТ НА КАЖДОЙ СТРАНИЦЕ</div>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-
-import Registration from './components/Registration.vue';
-
-export default {
-  components: {
-    Registration,
-  },
-};
 </script>
 
 <style lang="scss">
@@ -34,6 +29,14 @@ export default {
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+}
+.header{
+  display: flex;
+  justify-self: center;
+
+  &__title {
+    font-size: 34px;
   }
 }
 </style>
