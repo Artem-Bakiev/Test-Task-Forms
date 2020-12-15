@@ -1,5 +1,6 @@
 <template>
-  <el-table
+<div>
+    <el-table
     :data="tableData.filter
     (data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
     style="width: 100%">
@@ -13,7 +14,7 @@
     </el-table-column>
     <el-table-column
       align="right">
-      <template slot="header">
+      <template slot="header" slot-scope="{}">
         <el-input
           v-model="search"
           size="mini"
@@ -30,10 +31,12 @@
       </template>
     </el-table-column>
   </el-table>
+</div>
 </template>
 
 <script>
 export default {
+  name: 'TableOfUser',
   data() {
     return {
       tableData: [{
