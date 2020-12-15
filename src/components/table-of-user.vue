@@ -1,5 +1,6 @@
 <template>
 <div>
+    <p>{{ filteredUsers }}</p>
     <el-table
     :data="tableData.filter
     (data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
@@ -60,33 +61,33 @@ export default {
   data() {
     return {
       tableData: [{
-        email: 'tomholland.gmail.com',
+        email: 'notTom@gmail.com',
         password: 'RandomPassword',
-        phone: '8912391293',
+        phone: '89993912931',
         name: 'Tom Holland Junior',
         status: 'client',
         createDate: '2015-15-03',
         lastChangeDate: '2016-05-03',
       }, {
-        email: 'tomholland.gmail.com',
+        email: 'TrueHolland@gmail.com',
         password: 'RandomPassword',
-        phone: '8912391293',
+        phone: '89423912931',
         name: 'Tom Holland Junior',
         status: 'client',
         creatineDate: '2015-15-03',
         lastChangeDate: '2016-05-03',
       }, {
-        email: 'tomholland.gmail.com',
+        email: 'WhoHolland@gmail.com',
         password: 'RandomPassword',
-        phone: '8912391293',
+        phone: '89123912931',
         name: 'Tom Holland Junior',
         status: 'client',
         createDate: '2015-15-03',
         lastChangeDate: '2016-05-03',
       }, {
-        email: 'tomholland.gmail.com',
+        email: 'Robetr@mail.ru',
         password: 'RandomPassword',
-        phone: '8912391293',
+        phone: '89503123123',
         name: 'Tom Holland Junior',
         status: 'client',
         createDate: '2015-15-03',
@@ -101,6 +102,13 @@ export default {
     },
     handleDelete(index, row) {
       console.log(index, row);
+    },
+  },
+  computed: {
+    filteredUsers() {
+      return this.tableData.filter(email => {
+        return email.indexOf(this.search);
+      });
     },
   },
 };
