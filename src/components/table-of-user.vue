@@ -1,9 +1,8 @@
 <template>
 <div>
-    <p>{{ filteredUsers }}</p>
     <el-table
     :data="tableData.filter
-    (data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+    (data => !search || data.email.toLowerCase().includes(search.toLowerCase()))"
     style="width: 100%">
     <el-table-column
       label="Адрес электронной почты"
@@ -102,13 +101,6 @@ export default {
     },
     handleDelete(index, row) {
       console.log(index, row);
-    },
-  },
-  computed: {
-    filteredUsers() {
-      return this.tableData.filter(email => {
-        return email.indexOf(this.search);
-      });
     },
   },
 };
